@@ -1,17 +1,39 @@
 <template>
   <div id="app">
-    <Discover></Discover>
+    <Head v-if="isShow"></Head>
     <router-view></router-view>
+    <foot v-if="isShow"></foot>
+   {{geturl()}}
   </div>
 </template>
 
 <script>
-	import Discover from './components/discover'
+	
+	import foot from './components/component/foot';
+	import Head from './components/component/head'
 export default {
   name: 'App',
+  
+  data:function(){
+  	return {
+  		isShow:true
+  	}
+  },
   components:{
-  	Discover
-  }
+  	foot,
+  	Head
+  },
+  methods:{
+  	geturl:function(){
+  		if(window.location.pathname=='/login/loginin' || window.location.pathname=='/login/register'){
+  			this.isShow = false;
+  		}else{
+  			this.isShow = true;
+  		}
+  		//console.log(this.$route.path)
+  	}
+  },
+
 }
 </script>
 
@@ -34,5 +56,8 @@ export default {
 a{
 	text-decoration: none;
 }
-
+#app{
+	height: 100%;
+	width: 100%;
+}
 </style>

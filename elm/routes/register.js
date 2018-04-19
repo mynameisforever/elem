@@ -4,14 +4,17 @@ var Usermodel = require('../md/user');
 
 
 router.post('/',function(req,res){
-	Usermodule.create({
+	Usermodel.create({
 		username:req.body.username,
+		name:"mdzz",
 		password:req.body.password
 	},function(err,data){
 		if(!err){
-			res.send(1);
+			res.send("1");
 		}else{
-			res.send(0);
+			res.send("0");
 		}
 	})
 })
+
+module.exports = router;

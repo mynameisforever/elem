@@ -50,8 +50,8 @@
 	</template>
 	
 <script>
-	import Headd from './compoent/head'
-	import Foot from './compoent/foot'
+	import Headd from './component/head'
+	import Foot from './component/foot'
 	import axios from "axios";
 	export default{
 		data(){

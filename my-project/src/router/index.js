@@ -4,7 +4,9 @@ import HomeComponent from "../components/msite"
 import CoverComponent from "../components/discover" 
 import OrderComponent from "../components/order"	
 import FileComponent from "../components/profile"	
-import LoginComponent from "../components/login"	
+import LoginComponent from "../components/login"
+import LogininComponent from "../components/componentlogin/loginin"
+import RegisterComponent from "../components/componentlogin/register"
 
 Vue.use(Router)
 
@@ -34,11 +36,25 @@ export default new Router({
     },
     {
     	path:"/login",
-    	component:LoginComponent
+    	component:LoginComponent,
+    	children:[
+	    	{
+		    	path:'loginin',
+		    	component:LogininComponent
+		    },
+		    {
+		    	path:'register',
+		    	component:RegisterComponent
+		    },
+		    {
+		    	path:"/",
+		    	redirect:"/login/loginin"
+		    }
+    	]
     },
     {
     	path:"*",
-    	redirect:"/home"
+    	redirect:"/msite"
     }
   ]
 })

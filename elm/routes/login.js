@@ -9,15 +9,18 @@ router.get('/',function(req,res){
 
 router.post('/',function(req,res){
 	Usermodel.find({
-		username:req.query.username,
-		password:req.query.password,
+		username:req.body.username,
+		password:req.body.password
 	},function(err,data){
 		if(!err){
 			if(data.length!=0){
-				res.send(1);
+				res.send(data);
 			}else{
-				res.send(0)
+				res.send(data);
 			}
 		}
 	})
 })
+
+
+module.exports = router;
