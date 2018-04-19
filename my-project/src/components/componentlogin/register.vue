@@ -28,9 +28,10 @@
 				}).then(res=>{
 					if(res.data==0){
 						alert("注册失败");
+					}else if(res.data=="用户已注册"){
+						alert("该用户已经注册");						
 					}else{
-						
-						router.push({path:"/login"});						
+						router.push({path:"/login"});
 					}
 				})
 			}
