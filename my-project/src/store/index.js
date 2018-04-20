@@ -8,6 +8,7 @@ const store = new Vuex.Store({
 
 	state:{
 		isShow:true, //公用的状态
+		
 	},
 
 	mutations:{
@@ -15,7 +16,7 @@ const store = new Vuex.Store({
 		changeElemTitle:function(state,payload){
 			console.log(payload);
 			//改变状态
-			state.title=payload;
+			state.isShow=payload;
 		}
 	}
 
