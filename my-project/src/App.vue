@@ -30,7 +30,7 @@ export default {
   		}else{
   			this.isShow = true;
   		}
-  		//console.log(window.location)
+  		   console.log(window.location)
   	}
   },
 
