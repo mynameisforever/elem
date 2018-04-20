@@ -8,7 +8,6 @@ const store = new Vuex.Store({
 
 	state:{
 		isShow:true, //公用的状态
-		
 	},
 
 	mutations:{
