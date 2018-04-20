@@ -7,6 +7,8 @@
 				<input placeholder="密码" type="password" autocapitalize="on" v-model="password">
 			</section>
 			<button @click="handclick">注册</button>
+			
+			
 	</div>
 </template>
 
@@ -53,7 +55,6 @@
 		    border: 1px solid #ddd;
 		    border-radius: .08rem;
 		    color: #333;
-		    
 		}
 	}
 	button{

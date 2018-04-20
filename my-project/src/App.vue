@@ -25,12 +25,12 @@ export default {
   },
   methods:{
   	geturl:function(){
-  		if(window.location.pathname=='/login/loginin' || window.location.pathname=='/login/register'){
+  		if(this.$route.path=='/login/loginin' || this.$route.path=='/login/register'){
   			this.isShow = false;
   		}else{
   			this.isShow = true;
   		}
-  		//console.log(this.$route.path)
+  		console.log(window.location)
   	}
   },
 

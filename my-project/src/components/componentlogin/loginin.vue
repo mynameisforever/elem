@@ -30,7 +30,7 @@
 						
 					}else{
 						console.log(res);
-						router.push({path:"/msite"});						
+						router.push({path:"/profile"});						
 					}
 				})
 			}

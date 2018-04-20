@@ -9,16 +9,25 @@
 					<router-link tag="a" to="/login/register" activeClass="active">注册</router-link>
 				</div>
 			
-				<router-view></router-view>
+				
 				
 			</div>
+			
+			<router-view></router-view>
+
+			<div class="message" v-if="showMessage">该用户已注册</div>
+			
 		</div>
 	</div>
 </template>
 
 <script>
 	export default {
-		
+		data(){
+			return {
+				showMessage:false,
+			}
+		}
 	}
 </script>
 
@@ -51,6 +60,11 @@
 					border-bottom: 2px solid #2395ff;
 				}
 			}
+		}
+		.message{
+			text-align: center;
+			margin-top: 1rem;
+			font-size: .3rem;
 		}
 	}
 </style>
