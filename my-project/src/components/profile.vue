@@ -1,6 +1,6 @@
 <template>		
 		<div class="my">
-			<!--<Head></Head>-->
+			<Head titles="我的"></Head>
 			
 			<router-link tag="section" to="./login" >
 				<div class="login">
@@ -116,7 +116,7 @@
 </template>
 
 <script>
-//	import Head from "./common/head"
+	import Head from "./component/head"
 
 export default {
 
@@ -128,7 +128,7 @@ export default {
 
 		},
 		components:{
-//			Head
+			Head
 		}
 	}
 </script>

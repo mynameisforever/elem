@@ -7,6 +7,7 @@
 				<input placeholder="密码" type="password" autocapitalize="on" v-model="password">
 			</section>
 			<button @click="handclick"> 登录</button>
+			<div class="message">{{showMessage}}</div>
 	</div>
 </template>
 
@@ -17,19 +18,29 @@
 		data(){
 			return {
 				username:'',
-				password:''
+				password:'',
+				showMessage:""
 			}
 		},
 		methods:{
 			handclick(){
+				var _this = this;
 				axios.post("/login",{
 					username:this.username,
 					password:this.password
 				}).then(res=>{
 					if(res.data==0){
+						this.showMessage = "用户名或密码错误";
 						
+						setTimeout(function(){
+							_this.showMessage = "";
+						},2000);
 					}else{
-						console.log(res);
+						this.showMessage = "登录成功";
+						
+						setTimeout(function(){
+							_this.showMessage = "";
+						},2000);
 						router.push({path:"/profile"});						
 					}
 				})
@@ -71,5 +82,9 @@
 	    outline: none;
     	border: none;
 	}
-    
+    .message{
+			text-align: center;
+			margin-top: 1rem;
+			font-size: .3rem;
+		}
 </style>

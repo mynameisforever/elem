@@ -15,7 +15,7 @@
 			
 			<router-view></router-view>
 
-			<div class="message" v-if="showMessage">该用户已注册</div>
+			
 			
 		</div>
 	</div>
@@ -61,10 +61,6 @@
 				}
 			}
 		}
-		.message{
-			text-align: center;
-			margin-top: 1rem;
-			font-size: .3rem;
-		}
+		
 	}
 </style>

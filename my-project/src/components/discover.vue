@@ -1,7 +1,8 @@
 <template>
 	<div>
+		<Head titles="发现"></Head>
 		<div class="banner">
-			<Headd></Headd>
+			
 			<img src="https://fuss10.elemecdn.com/a/5c/c19ebf245df0e585f8e7f983c5f68gif.gif"/>
 		</div>
 		<section>
@@ -50,7 +51,7 @@
 	</template>
 	
 <script>
-	import Headd from './component/head'
+	import Head from './component/head'
 	import Foot from './component/foot'
 	import axios from "axios";
 	export default{
@@ -61,7 +62,7 @@
 			}
 		},
 		components:{
-			Headd,
+			Head,
 			Foot
 		},
 		mounted(){
@@ -81,10 +82,37 @@
 </script>
 
 <style lang="scss" scoped>
-	
-	*{
-		margin: 0;
-		padding: 0;
+	header{
+		top: 0;
+		position: fixed;
+		background: #0af;
+		height: .88rem;
+		overflow: hidden;
+		width: 100%;
+		h1{
+			color: white;
+			font-size: .3rem;
+			text-align: center;
+			position: absolute;
+			left: 50%;
+			margin-left: -.27rem;
+			top: 50%;
+			margin-top: -.2rem;
+		}
+		div{
+			width: .88rem;
+			height: .88rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			img{
+				float: left;
+				width:30%;
+				height: 40%;
+				
+			}
+			
+		}
 	}
 	.banner{
 		img{
@@ -214,7 +242,7 @@
 		flex-wrap: wrap;
 		.discount{
 			background: #000000;
-			font-size: .08rem;
+			font-size: .2rem;
 			color: white;
 			position: absolute;
 			left: 0;

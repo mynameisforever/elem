@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Head v-if="isShow"></Head>
+    
     <router-view></router-view>
     <foot v-if="isShow"></foot>
    {{geturl()}}
@@ -30,7 +30,7 @@ export default {
   		}else{
   			this.isShow = true;
   		}
-  		console.log(window.location)
+  		//console.log(window.location)
   	}
   },
 
