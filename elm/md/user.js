@@ -4,7 +4,6 @@ var Schema = mongoose.Schema;
 
 var obj={
 	username:String,
-	name:String,
 	password:String
 }
 

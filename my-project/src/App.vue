@@ -3,7 +3,6 @@
     
     <router-view></router-view>
     <foot v-if="isShow"></foot>
-   {{geturl()}}
   </div>
 </template>
 
@@ -16,24 +15,20 @@ export default {
   
   data:function(){
   	return {
-  		isShow:true
+  		
   	}
   },
   components:{
   	foot,
-  	Head
   },
   methods:{
-  	geturl:function(){
-  		if(this.$route.path=='/login/loginin' || this.$route.path=='/login/register'){
-  			this.isShow = false;
-  		}else{
-  			this.isShow = true;
-  		}
-  		   console.log(window.location)
-  	}
+  	
   },
-
+	computed:{
+		isShow(){
+			return this.$store.state.isShow;
+		}
+	}
 }
 </script>
 

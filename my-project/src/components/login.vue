@@ -27,6 +27,9 @@
 			return {
 				showMessage:false,
 			}
+		},
+		mounted(){
+			this.$store.commit("changeElemTitle",false);
 		}
 	}
 </script>

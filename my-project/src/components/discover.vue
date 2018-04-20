@@ -69,13 +69,16 @@
 			axios.get("/restapi/member/v1/discover?platform=1&block_index=0").then(res=>{
 				console.log(res.data[1])
 				this.datalist = res.data[1]
-			})
+			});
 			
 			axios.get("/restapi/member/gifts/suggest").then(res=>{
 				
 				this.giftlist = res.data.slice(0,3);
 				//console.log(this.giftlist);
-			})
+			});
+			
+			this.$store.commit("changeElemTitle",true);
+		
 		}
 		
 	}

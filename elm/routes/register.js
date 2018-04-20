@@ -11,7 +11,6 @@ router.post('/',function(req,res){
 			if(data.length==0){
 				Usermodel.create({
 					username:req.body.username,
-					name:"mdzz",
 					password:req.body.password
 				},function(err,data1){
 					if(!err){

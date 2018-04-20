@@ -1,7 +1,7 @@
 <template>
 	<div>
 			<section>
-				<input type="text" autocapitalize="on" placeholder="手机/邮箱/用户名" v-model="username">
+				<input type="text" autocapitalize="on" placeholder="手机" v-model="username">
 			</section>
 			<section>
 				<input placeholder="密码" type="password" autocapitalize="on" v-model="password">

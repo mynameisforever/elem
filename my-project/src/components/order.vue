@@ -9,6 +9,9 @@
 	export default {
 		components:{
 			Head
+		},
+		mounted(){
+			this.$store.commit("changeElemTitle",true);
 		}
 	}
 </script>
