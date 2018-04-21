@@ -9,6 +9,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var register = require('./routes/register');
 var login = require('./routes/login');
+var myinfo = require('./routes/myinfo');
+var updatepsd = require('./routes/updatepsd');
 
 var mongoose = require("mongoose");
 mongoose.connect('mongodb://localhost:27017/elem');
@@ -29,6 +31,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/register',register);
 app.use('/login',login);
+app.use('/myinfo',myinfo);
+app.use('/updatepsd',updatepsd);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

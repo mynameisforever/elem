@@ -7,6 +7,8 @@ import FileComponent from "../components/profile"
 import LoginComponent from "../components/login"
 import LogininComponent from "../components/componentlogin/loginin"
 import RegisterComponent from "../components/componentlogin/register"
+import MessageComponent from "../components/message"
+import ChangepsdComponent from "../components/Changepsd"
 
 Vue.use(Router)
 
@@ -30,9 +32,17 @@ export default new Router({
     	path:"/order",
     	component:OrderComponent,
     },
-        {
+    {
     	path:"/profile",
-    	component:FileComponent
+    	component:FileComponent,
+    },
+    {
+    	path:"/profile/message",
+    	component:MessageComponent,
+    },
+    {
+    	path:"/profile/message/updatepsd",
+    	component:ChangepsdComponent,
     },
     {
     	path:"/login",

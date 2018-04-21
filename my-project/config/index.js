@@ -43,6 +43,22 @@ module.exports = {
               //     '^/v4/api': '/v4/api'
               //   }
           },
+          '/myinfo': {
+              target: 'http://localhost:3000',
+              host: 'localhost',
+              changeOrigin:true,
+              // pathRewrite: {
+              //     '^/v4/api': '/v4/api'
+              //   }
+          },
+          '/updatepsd': {
+              target: 'http://localhost:3000',
+              host: 'localhost',
+              changeOrigin:true,
+              // pathRewrite: {
+              //     '^/v4/api': '/v4/api'
+              //   }
+          },
     },
 
     // Various Dev Server settings

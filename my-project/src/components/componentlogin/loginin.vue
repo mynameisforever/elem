@@ -1,7 +1,7 @@
 <template>
 	<div>
 			<section>
-				<input type="text" autocapitalize="on" placeholder="手机" v-model="username">
+				<input type="number" autocapitalize="on" placeholder="手机" v-model="username">
 			</section>
 			<section>
 				<input placeholder="密码" type="password" autocapitalize="on" v-model="password">
@@ -41,7 +41,8 @@
 						setTimeout(function(){
 							_this.showMessage = "";
 						},2000);
-						router.push({path:"/profile"});						
+						console.log(res.data[0]._id);
+						router.push({path:`/profile?id=${res.data[0]._id}`}); 	
 					}
 				})
 			}

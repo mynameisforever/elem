@@ -2,15 +2,15 @@
 		<div class="my">
 			<Head titles="我的"></Head>
 			
-			<router-link tag="section" to="./login" >
+			<router-link tag="section" :to="toUrl" >
 				<div class="login">
 					<svg viewBox="0 0 122 122" id="avatar-default" width="1.2rem" height="1.2rem"><path fill="#DCDCDC" fill-rule="evenodd" d="M61 121.5c33.413 0 60.5-27.087 60.5-60.5S94.413.5 61 .5.5 27.587.5 61s27.087 60.5 60.5 60.5zm12.526-45.806c-.019 3.316-.108 6.052.237 9.825 3.286 8.749 18.816 9.407 28.468 17.891-1.833 1.998-6.768 6.788-15 10.848-7.02 3.463-16.838 6.416-24.831 6.416-17.366 0-32.764-7.149-42.919-17.264 9.713-8.407 25.49-9.173 28.769-17.891.345-3.773.258-6.509.24-9.825l-.004-.002c-1.903-.985-5.438-7.268-6.01-12.571-1.492-.12-3.843-1.561-4.534-7.247-.37-3.053 1.107-4.77 2.004-5.31-5.046-19.212 1.507-33.16 20.749-34.406 5.753 0 10.18 1.52 11.909 4.523 15.35 2.702 11.756 22.658 9.328 29.882.899.54 2.376 2.258 2.004 5.31-.689 5.687-3.042 7.127-4.534 7.248-.575 5.305-3.25 10.82-5.873 12.57l-.003.003zM61 120.5C28.14 120.5 1.5 93.86 1.5 61S28.14 1.5 61 1.5s59.5 26.64 59.5 59.5-26.64 59.5-59.5 59.5z"></path></svg>
 					
 					<div class="login1">
-						<p class="login1-1">登录/注册</p>	
+						<p class="login1-1">{{name}}</p>	
 						<p class="login1-2">
 							<i class="iconfont icon-shouji"></i>
-							<span>登陆后享受更多权益</span>
+							<span>{{phone}}</span>
 						</p>
 						
 					</div>
@@ -117,13 +117,13 @@
 
 <script>
 	import Head from "./component/head"
-
+	import axios from "axios";
 export default {
-
-
 		data(){
 			return {
-				
+				name:"登录/注册",
+				phone:"登录后享更多权益",
+				toUrl:"/login"
 			}
 
 		},
@@ -131,7 +131,33 @@ export default {
 			Head
 		},
 		mounted(){
+			
 			this.$store.commit("changeElemTitle",true);
+			
+			if(getCookie("user")){
+				var obj=JSON.parse(getCookie("user"));
+				this.name = obj.name;
+				this.phone = obj.phone;
+				this.toUrl = "/profile/message";
+				
+				
+			}else{
+				if(this.$route.query.id){
+					//console.log(this.$route.query.id)
+					this.toUrl = "/profile/message"; // 改变跳转路径
+					
+					
+					axios.post("/myinfo",{
+						id:this.$route.query.id,
+					}).then(res=>{
+						this.name = res.data[0].name.slice(0,1)+"****"+res.data[0].name.slice(-1);
+						this.phone = res.data[0].username.slice(0,3)+"****"+res.data[0].username.slice(-4);
+						setCookie("user",JSON.stringify({name:this.name,phone:this.phone,id:this.$route.query.id}),7);
+					});
+				}else{
+					this.toUrl = "/login";
+				}
+			}
 		}
 	}
 </script>
